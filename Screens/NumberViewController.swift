@@ -41,6 +41,11 @@ class NumberViewController: UIViewController {
             label.center = view.center
             
         }
+        @IBAction func done(_ sender: Any){
+            navigationController?.popViewController(animated: true)
+        }
+        
+        
     }
     
     
