@@ -13,18 +13,38 @@ class NumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       // 1. customize the label
+        
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 64)
+        //label.center = view.center
+        label.text = "1"
+        label.text = "HELLO"
+        label.sizeToFit()
+        label.center = view.center //repostion after a new size
+        
+        view.addSubview(label)
+        
+        // 2. figure out how to display navigation stack count
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        // 2. Figure out how to display navigation stack count
+        if let number = navigationController?.viewControllers.count {
+            label.text = String(number)
+            label.sizeToFit()
+            label.center = view.center
+            
+        }
     }
-    */
+    
+    
+let label = UILabel() // zero sized label
+
 
 }
